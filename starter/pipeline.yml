@@ -98,7 +98,7 @@ Resources:
               commands:
                 - echo "Deploying AWS Config Rule for Restricted SSH"
                 # Put the Config Rule (assumes template.yaml contains the rule JSON)
-                - aws configservice put-config-rule --config-rule file://template.yaml
+                - aws configservice put-config-rule --config-rule file://starter/template.yaml
                 # Optional: Describe and verify
                 - aws configservice describe-config-rules --config-rule-names org-restricted-ssh
           artifacts:
