@@ -1,9 +1,18 @@
 {
-  "ConfigRuleName": "org-restricted-ssh",
-  "Description": "Security groups must not allow SSH from 0.0.0.0/0",
-  "Scope": {},
-  "Source": {
-    
-  },
-  "MaximumExecutionFrequency": "TwentyFour_Hours"
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Resources": {
+    "RestrictedSSHConfigRule": {
+      "Type": "AWS::Config::ConfigRule",
+      "Properties": {
+        "ConfigRuleName": "org-restricted-ssh",
+        "Description": "Security groups must not allow SSH from 0.0.0.0/0",
+        "Scope": {},
+        "Source": {
+          "Owner": "AWS",
+          "SourceIdentifier": "INCOMING_SSH_DISABLED"
+        },
+        "MaximumExecutionFrequency": "TwentyFour_Hours"
+      }
+    }
+  }
 }
